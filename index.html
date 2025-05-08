@@ -1,144 +1,152 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>باغ رستوران عطر سیب</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap');
-
-    html, body {
+    body, html {
       margin: 0;
       padding: 0;
       height: 100%;
-      overflow: hidden;
       font-family: 'Vazirmatn', sans-serif;
-      background: radial-gradient(circle, #0e1b34, #050d1a);
-      color: #fff;
-      scroll-behavior: smooth;
+      background-color: #0b163f;
+      color: white;
+      overflow: hidden;
     }
-
     #particles-js {
       position: fixed;
       width: 100%;
       height: 100%;
       z-index: 0;
     }
-
     .welcome-box {
-      position: fixed;
-      z-index: 1;
+      position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background: rgba(255, 255, 255, 0.05);
-      padding: 2rem 3rem;
-      border-radius: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      text-align: center;
-      backdrop-filter: blur(10px);
-      cursor: pointer;
-      animation: fadeInUp 2s ease forwards;
-    }
-
-    .welcome-box:hover {
       background: rgba(255, 255, 255, 0.1);
-    }
-
-    .logo-box {
-      margin-top: 120vh;
+      padding: 40px;
+      border-radius: 16px;
       text-align: center;
+      z-index: 2;
+      cursor: pointer;
+      animation: fadeInUp 2s ease-out;
+      backdrop-filter: blur(10px);
     }
-
-    .logo-box img {
-      max-width: 300px;
-      background: rgba(0,0,0,0.5);
-      border-radius: 20px;
-      padding: 1rem;
+    .welcome-box h1 {
+      margin: 0;
+      font-size: 28px;
+      color: #ffd700;
     }
-
-    .contact {
-      text-align: center;
-      margin: 2rem auto;
-    }
-
-    .contact a {
-      display: block;
-      color: gold;
-      font-size: 1.1rem;
-      margin: 0.3rem 0;
-      text-decoration: none;
-    }
-
     @keyframes fadeInUp {
-      0% { opacity: 0; transform: translate(-50%, -40%); }
-      100% { opacity: 1; transform: translate(-50%, -50%); }
+      from { opacity: 0; transform: translate(-50%, -60%); }
+      to { opacity: 1; transform: translate(-50%, -50%); }
+    }
+    .content {
+      position: relative;
+      z-index: 2;
+      padding-top: 100vh;
+      text-align: center;
+    }
+    .logo {
+      max-width: 240px;
+      background: rgba(0,0,0,0.4);
+      padding: 10px;
+      border-radius: 12px;
+      margin-bottom: 30px;
+    }
+    .info {
+      margin-top: 20px;
+      font-size: 16px;
+      line-height: 2.2;
+    }
+    .scroll-btn {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      cursor: pointer;
+      color: #ffd700;
+      font-size: 20px;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(-10px); }
     }
   </style>
 </head>
 <body>
   <div id="particles-js"></div>
 
-  <div class="welcome-box" onclick="startExperience()">
-    <h2>به باغ رستوران عطر سیب خوش آمدید</h2>
-    <p>برای ورود کلیک کنید</p>
+  <div class="welcome-box" onclick="startSite()">
+    <h1>به باغ رستوران عطر سیب خوش آمدید</h1>
   </div>
 
-  <audio id="bg-music" src="https://codoseo.net/mag/wp-content/uploads/2021/07/bensound-ofeliasdream.mp3" loop></audio>
+  <div class="scroll-btn" onclick="scrollDown()">⬇️</div>
 
-  <div id="main-content" style="margin-top:200vh;">
-    <div class="logo-box">
-      <img src="عطر سیب.png" alt="لوگوی عطر سیب">
-    </div>
-    <div class="contact">
-      <h3>اینستاگرام</h3>
-      <a href="https://instagram.com/talar_emaratdibaa" target="_blank">@talar_emaratdibaa</a>
-      <a href="https://instagram.com/atresib_diba_resturant" target="_blank">@atresib_diba_resturant</a>
-      <a href="https://instagram.com/emarat_dibaa" target="_blank">@emarat_dibaa</a>
-
-      <h3>تماس</h3>
-      <a href="tel:+989126799873">+98 912 679 9873</a>
-      <a href="tel:+989198375293">+98 919 837 5293</a>
-      <a href="tel:+989186086131">+98 918 608 6131</a>
+  <div class="content" id="main-content" style="display: none;">
+    <img src="عطر سیب.png" alt="لوگو عطر سیب" class="logo" />
+    <div class="info">
+      <div>📱 09126799873</div>
+      <div>📱 09198375293</div>
+      <div>📱 09186086131</div>
+      <br>
+      <div>📸 @talar_emaratdibaa</div>
+      <div>📸 @atresib_diba_resturant</div>
+      <div>📸 @emarat_dibaa</div>
     </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <audio id="bg-music" src="https://codoseo.net/mag/wp-content/uploads/2021/07/bensound-ofeliasdream.mp3"></audio>
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
-    particlesJS("particles-js", {
-      particles: {
-        number: { value: 80, density: { enable: true, value_area: 800 } },
-        color: { value: "#ffd700" },
-        shape: {
-          type: "circle",
-          stroke: { width: 0, color: "#000000" },
-        },
-        opacity: { value: 0.6, random: true },
-        size: { value: 3, random: true },
-        line_linked: { enable: false },
-        move: {
-          enable: true,
-          speed: 1,
-          direction: "top",
-          random: true,
-          out_mode: "out"
-        }
-      },
-      interactivity: {
-        detect_on: "canvas",
-        events: {
-          onhover: { enable: false },
-          onclick: { enable: false }
-        },
-        modes: {}
-      },
-      retina_detect: true
-    });
-
-    function startExperience() {
+    function startSite() {
       document.querySelector('.welcome-box').style.display = 'none';
+      document.getElementById('main-content').style.display = 'block';
       document.getElementById('bg-music').play();
+    }
+
+    function scrollDown() {
       window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
     }
+
+    particlesJS("particles-js", {
+      "particles": {
+        "number": { "value": 80 },
+        "color": { "value": "#ffd700" },
+        "shape": {
+          "type": "circle",
+          "stroke": { "width": 0, "color": "#000000" },
+        },
+        "opacity": {
+          "value": 0.6,
+          "random": true
+        },
+        "size": {
+          "value": 3,
+          "random": true
+        },
+        "line_linked": {
+          "enable": false
+        },
+        "move": {
+          "enable": true,
+          "speed": 2
+        }
+      },
+      "interactivity": {
+        "events": {
+          "onhover": { "enable": false },
+          "onclick": { "enable": false }
+        }
+      },
+      "retina_detect": true
+    });
   </script>
 </body>
 </html>
